@@ -45,6 +45,8 @@
 <p>螺旋桿</p>
 <p><img alt="" height="338" src="https://40823208.github.io/stage1-bg8/images/70%E5%A1%8A.png" width="600"/></p>
 <h2>w3</h2>
+<p>零件總結影片 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/aBkcaL1e_14" width="560"></iframe></p>
+<p>圖案下載:<a href="https://drive.google.com/file/d/1A2OD-HsjxqEZE4VA-dOrMSLWLWxn2uR6/view?usp=sharing">https://drive.google.com/file/d/1A2OD-HsjxqEZE4VA-dOrMSLWLWxn2uR6/view?usp=sharing</a></p>
 <p><span style="background-color: #ff0000;">20210313</span></p>
 <p><span style="background-color: #ffffff;">模擬時發現孔比軸大，有間隙，旋轉時軸會跳飛，所以把孔改成與軸一樣直徑，30mm &gt; 20mm</span></p>
 <p><span style="background-color: #ff0000;"><img alt="" height="338" src="/images/螺旋桿後支撐孔更改0313.png" width="600"/></span></p>
@@ -57,3 +59,65 @@
 <p><span style="background-color: #ff0000;"><img alt="" height="338" src="/images/更改大徑20210314.png" width="600"/><br/></span></p>
 <p>繪製大鋼珠盒，讓大量鋼珠慢慢涓流</p>
 <p><img alt="" height="338" src="/images/鋼珠漏斗.png" width="600"/>1</p>
+<h1>筆記</h1>
+<h2>coppeliasim 新增球體,旋轉軸應用</h2>
+<p>1.如何新增一個直徑0.2,有物理屬性的球體?</p>
+<p><img alt="" height="413" src="https://40823246.github.io/cad2020bg4/images/1.png" width="475"/></p>
+<p>然後將x-size(直徑)調至0.2,然後按[Ok]。</p>
+<p>---</p>
+<p>2.如何再複製一個?</p>
+<p>對Sphere案右鍵</p>
+<p><img alt="" height="695" src="https://40823246.github.io/cad2020bg4/images/4.png" width="556"/></p>
+<p>然後到Edit貼上</p>
+<p><img alt="" height="429" src="https://40823246.github.io/cad2020bg4/images/5.png" width="342"/></p>
+<p>然後兩顆一模一樣的球就會重疊在一起。</p>
+<p>---</p>
+<p>3.如何移動球體?</p>
+<p>點選紅圈內的按鈕,然後再輕點想移動的球體。</p>
+<p><img alt="" height="153" src="https://40823246.github.io/cad2020bg4/images/1.jpg" width="153"/></p>
+<p>這個視窗可以調整X,Y,Z軸的自由度(勾選即可解鎖自由度)。</p>
+<p><img alt="" height="222" src="https://40823246.github.io/cad2020bg4/images/7.png" width="431"/></p>
+<p>---</p>
+<p>4.如何新增感測器?</p>
+<p>新增完再將感測器拖曳到Sphere中。</p>
+<p><img alt="" height="410" src="https://40823246.github.io/cad2020bg4/images/9.png" width="503"/></p>
+<p>接著調整感測器位置,輕點感測器,再點紅色底線按鈕,X輸入0.1,Z輸入0.12。</p>
+<p><img alt="" height="230" src="https://40823246.github.io/cad2020bg4/images/11.jpg" width="472"/></p>
+<p>調整感測器大小參數,輕點感測器,點選紅色底線按鈕,offset輸入0.005,range輸入0.1,angle輸入30。</p>
+<p><img alt="" height="542" src="https://40823246.github.io/cad2020bg4/images/12.jpg" width="917"/></p>
+<p>---</p>
+<p>5.如何新增車輪:</p>
+<p>首先新增一個新場景。</p>
+<p><br/>新增圓柱體，並調整大小 尺寸為（0.08,0.08,0.02）。</p>
+<p><img alt="" height="218" src="https://40823246.github.io/cad2020bg4/images/%E8%BB%8A%E8%BC%AA4.png" width="359"/></p>
+<p><img alt="" height="294" src="https://40823246.github.io/cad2020bg4/images/%E8%BB%8A%E8%BC%AA.png" width="432"/></p>
+<p></p>
+<p>在該圓柱的<strong>object common properties</strong>中啟用<strong><span> </span>Collidable，Measurable，Renderable</strong>和<strong>Detectable。</strong><br/><img alt="" height="606" src="https://40823246.github.io/cad2020bg4/images/%E8%BB%8A%E8%BC%AA2.png" width="434"/></p>
+<p><br/>調整圓柱體位置 將圓柱的絕對位置設置為（0.05,0.1,0.04），並將其絕對方向設置為（-90,0,0)。<br/><img alt="" height="38" src="https://40823246.github.io/cad2020bg4/images/%E6%97%8B%E8%BD%89%E6%8C%89%E9%88%95.png" width="39"/></p>
+<p><img alt="" height="221" src="https://40823246.github.io/cad2020bg4/images/%E6%97%8B%E8%BD%89%E8%A6%96%E7%AA%97.png" width="430"/></p>
+<p><br/>改名為<strong>bubbleRob_leftWheel</strong>並複製。</p>
+<p><br/>貼上，並調整絕對位置設置y為-0.1Y在改名為<strong>bubbleRob_rightWheel。</strong></p>
+<p><br/>複製兩個輪子並貼到主場景。</p>
+<p>---</p>
+<p>6.有了輪子,那如何新增馬達?<br/><img alt="" height="115" src="https://40823246.github.io/cad2020bg4/images/motor1.png" width="401"/></p>
+<p></p>
+<p>案ctrl,讓馬達與左輪都在選中狀態</p>
+<p><br/>點選</p>
+<p><img alt="" height="34" src="https://40823246.github.io/cad2020bg4/images/motor2.png" width="35"/></p>
+<p></p>
+<p>在position中,點擊apply to selection<br/><img alt="" height="222" src="https://40823246.github.io/cad2020bg4/images/motor3.png" width="431"/></p>
+<p><br/>點選</p>
+<p><img alt="" height="34" src="https://40823246.github.io/cad2020bg4/images/motor4.png" width="41"/></p>
+<p></p>
+<p>在orientation中,點擊apply to selection</p>
+<p><br/>將輪子拖入馬達中<br/><img alt="" height="35" src="https://40823246.github.io/cad2020bg4/images/motor8.png" width="223"/></p>
+<p><br/>選中馬達,點選</p>
+<p><img alt="" height="40" src="https://40823246.github.io/cad2020bg4/images/motor5.png" width="41"/></p>
+<p></p>
+<p>點選</p>
+<p><span></span><img alt="" height="522" src="https://40823246.github.io/cad2020bg4/images/motor6.png" width="431"/></p>
+<p><br/>勾選</p>
+<p><img alt="" height="465" src="https://40823246.github.io/cad2020bg4/images/motor7.png" width="428"/></p>
+<h2>組員fork git pull 注意事項</h2>
+<p>組員git pull之前先進</p>
+<p>.git資料夾 &gt; 修改config中url的學號，改為組長的 &gt; git pull &gt;改回自己的</p>
