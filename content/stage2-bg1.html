@@ -282,7 +282,124 @@ end </pre>
 <p style="text-align: left;"><span style="background-color: #ffffff;"><img alt="" height="338" src="./../images/齒輪.png" width="600"/></span></p>
 <p>在插鏟上增加齒條，模數為2</p>
 <p><img alt="" height="338" src="./../images/叉子增加尺條.png" width="600"/></p>
-<p>5</p><br />stage1-bg8 << <a href='stage1-bg8.html'>Previous</a> <a href='筆記.html'>Next</a> >> 筆記</div>
+<p><span style="background-color: #ff0000;">20210418</span></p>
+<p><span style="background-color: #ff0000;"></span>加入方向鍵控制插鏟功能</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/7JWOfH0xvuE" title="YouTube video player" width="560"></iframe></p>
+<p>程式:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
+    left_front_handle= sim.getObjectHandle('left_joint')
+    left_back_handle= sim.getObjectHandle('left_joint')
+    right_back_handle= sim.getObjectHandle('right_joint')
+    right_front_handle= sim.getObjectHandle('right_joint')
+    gear_up_handle= sim.getObjectHandle('gear_joint')
+    gear_down_handle= sim.getObjectHandle('gear_joint')
+    MaxVel=10
+    MaxVel_gear=30
+    leftvelocity=0
+    rightvelocity=0
+    upvelocity=0
+    dVel=10;
+    dVel_gear=10;
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    sim.setJointTargetVelocity(gear_down_handle,upvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+end
+
+function sysCall_actuation() 
+    message,auxiliaryData=sim.getSimulatorMessage()
+    while message~=-1 do
+        if (message==sim.message_keypress) then
+            if (auxiliaryData[1]==32) then
+                leftvelocity=0
+                rightvelocity=0
+                upvelocity=0
+                sim.setJointForce(left_front_handle, 0)
+                sim.setJointForce(left_back_handle, 0)
+                sim.setJointForce(right_back_handle, 0)
+                sim.setJointForce(right_front_handle, 0)
+                sim.setJointForce(gear_up_handle, 0)
+                sim.setJointForce(gear_down_handle, 0)
+                break
+            else
+                --sim.setJointForce(left_front_handle, 10000)
+                sim.setJointForce(left_back_handle, 10000)
+                sim.setJointForce(right_back_handle, 10000)
+                sim.setJointForce(gear_down_handle, 10000)
+                --sim.setJointForce(right_front_handle, 10000)
+            end
+            if (auxiliaryData[1]==119) then
+                -- w key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==115) then
+                -- s key
+                leftvelocity=(leftvelocity+rightvelocity)/2
+                rightvelocity=leftvelocity
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity-dVel
+            end
+            if (auxiliaryData[1]==97) then
+                -- a key
+                leftvelocity=leftvelocity-dVel
+                rightvelocity=rightvelocity+dVel
+            end
+            if (auxiliaryData[1]==100) then
+                -- d key
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity-dVel
+            end
+            if (auxiliaryData[1]==100) then
+                -- d key
+                leftvelocity=leftvelocity+dVel
+                rightvelocity=rightvelocity-dVel
+            end
+            if (auxiliaryData[1]==2008) then
+                -- up key
+                upvelocity=upvelocity+dVel_gear
+            end
+            if (auxiliaryData[1]==2007) then
+                -- down key
+                upvelocity=upvelocity-dVel_gear
+            end
+            
+        end
+        message,auxiliaryData=sim.getSimulatorMessage()
+    end
+    
+    if leftvelocity&gt;MaxVel then
+        leftvelocity=MaxVel
+    end
+    if leftvelocity&lt;-MaxVel then
+        leftvelocity=-MaxVel
+    end
+    
+    if rightvelocity&gt;MaxVel then
+                rightvelocity=MaxVel
+    end
+    if rightvelocity&lt;-MaxVel then
+                rightvelocity=-MaxVel
+    end
+    if upvelocity&gt;MaxVel_gear then
+                    upvelocity=MaxVel_gear
+    end
+    if upvelocity&lt;-MaxVel_gear then
+                    upvelocity=-MaxVel_gear
+    end
+    
+    --sim.setJointTargetVelocity(left_front_handle,leftvelocity)
+    sim.setJointTargetVelocity(left_back_handle,leftvelocity)
+    sim.setJointTargetVelocity(right_back_handle,rightvelocity)
+    sim.setJointTargetVelocity(gear_down_handle,upvelocity)
+    --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
+    
+end </pre>
+<p>5</p>
+<p></p><br />stage1-bg8 << <a href='stage1-bg8.html'>Previous</a> <a href='筆記.html'>Next</a> >> 筆記</div>
         
     <!-- footer -->
       <div class="container">
