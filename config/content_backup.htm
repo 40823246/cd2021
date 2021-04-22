@@ -72,7 +72,7 @@
 <p style="text-align: left;"><img alt="" height="337" src="/images/轉子引擎示意圖.png" width="600"/></p>
 <hr/>
 <p style="text-align: center;"><span style="background-color: #00ff00;">w6</span></p>
-<p style="text-align: left;"><span style="background-color: #ffffff;">solidworks模擬影片(20rpm)</span></p>
+<p style="text-align: left;"><span style="background-color: #ffffff;">利用追蹤頂點路徑 取得不規則曲線草圖(20rpm)</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/QdSpyUo02mk" title="YouTube video player" width="560"></iframe></p>
 <p style="text-align: left;"><span style="background-color: #00ff00;"><span></span></span></p>
 <p style="text-align: left;"><span style="background-color: #ff0000;">20210402</span></p>
@@ -103,7 +103,8 @@
 <p style="text-align: center;"><span style="background-color: #00ff00;">w7</span></p>
 <p><span style="background-color: #00ff00;"></span>討論改什麼</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/mBRfahcgoyI" title="YouTube video player" width="560"></iframe></p>
-<p><span style="background-color: #ff0000;"></span></p>
+<p><span style="background-color: #ff0000;"></span>結論:堆高機</p>
+<p></p>
 <p><span style="background-color: #ff0000;">20210411</span></p>
 <p><span style="background-color: #ffffff;">前輪繪製完成</span></p>
 <p><span style="background-color: #ff0000;"><img alt="" height="338" src="/images/前輪.png" width="600"/></span></p>
@@ -333,6 +334,8 @@ end </pre>
 <p><span style="background-color: #ff0000;"><img alt="" height="338" src="/images/齒輪2.png" width="600"/></span></p>
 <p>原本中間一根尺條改成兩旁兩根尺，增加抓力，改善駕駛員視線</p>
 <p><img alt="" height="338" src="/images/叉子2.png" width="600"/></p>
+<p>成品圖:</p>
+<p><img alt="" height="338" src="/images/堆高機2.png" width="600"/></p>
 <p>修改後成果</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/tvGyi0LNELQ" title="YouTube video player" width="560"></iframe></p>
 <p>程式</p>
@@ -448,16 +451,27 @@ function sysCall_actuation()
     sim.setJointTargetVelocity(gear_down_handle,upvelocity)
     --sim.setJointTargetVelocity(right_front_handle,rightvelocity)
     
-end </pre>
-<h3>參考資料</h3>
-<p>轉子引擎:</p>
+end </pre><h3>檔案下載</h3>
+<p>轉子引擎(未完成):</p>
+<p><a href="/downloads/轉子引擎包.zip">轉子引擎包.zip</a></p>
+<hr/>
+<p>堆高機:</p>
+<p><a href="/downloads/堆高機包.zip">堆高機包.zip</a>(圖檔與程式)</p>
+<p></p><h3>參考資料</h3>
+<p><span style="background-color: #ff0000;">轉子引擎:</span></p>
 <p><a href="https://www.youtube.com/watch?v=nA5vAulVHbw">https://www.youtube.com/watch?v=nA5vAulVHbw</a></p>
 <p><a href="https://www.youtube.com/watch?v=fec0z_BOSzo">https://www.youtube.com/watch?v=fec0z_BOSzo</a></p>
 <p><a href="https://zh.wikipedia.org/wiki/%E5%8B%92%E6%B4%9B%E4%B8%89%E8%A7%92%E5%BD%A2">https://zh.wikipedia.org/wiki/</a></p>
 <hr/>
-<p>堆高機:</p>
+<p><span style="background-color: #ff0000;">堆高機:</span></p>
+<p>繪圖參考</p>
 <p><a href="http://www.hsintai.tw/nissan">http://www.hsintai.tw/nissan</a></p>
-<p></p><h1>筆記</h1>
+<p><a href="http://www.yang-forklift.com.tw/_i/assets/upload/images/2018-10-19_092303.png">http://www.yang-forklift.com.tw/_i/assets/upload/images/2018-10-19_092303.png</a></p>
+<p>程式參考</p>
+<p><a href="https://mdekmol.github.io/cd2019a-task1-2019cda_t1_g2/content/Vrep-2.html">https://mdekmol.github.io/cd2019a-task1-2019cda_t1_g2/content/Vrep-2.html</a></p>
+<p></p>
+<p></p>
+<h1>筆記</h1>
 <h2>coppeliasim 新增球體,旋轉軸應用</h2>
 <p>1.如何新增一個直徑0.2,有物理屬性的球體?</p>
 <p><img alt="" height="413" src="https://40823246.github.io/cad2020bg4/images/1.png" width="475"/></p>
@@ -540,6 +554,3 @@ end </pre>
 <h1>W5</h1>
 <p><a href="/downloads/W5.xlsx">W5.xlsx</a></p>
 <p><iframe height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7IitEfk9YphCecJpxw5MfAHtkjkhAiKyLjUAfMcn4l5NNHmPYqED1pEBjCnCVvdsh70ygz7K4y3JP/pubhtml?widget=true&amp;headers=false" width="800"></iframe></p>
-<div id="gtx-trans" style="position: absolute; left: -42px; top: 20784.9px;">
-<div class="gtx-trans-icon"></div>
-</div>
