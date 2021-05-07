@@ -485,7 +485,110 @@ end </pre>
 <p><span style="background-color: #ff0000;">20210506</span></p>
 <p><span style="background-color: #ffffff;">新增控制推高機前後左右功能</span></p>
 <p><span style="background-color: #ff0000;"><img alt="" height="338" src="/images/remote api 新增前後左右功能.gif" width="600"/></span></p>
-<p><span style="background-color: #ff0000;">5</span></p><h1>筆記</h1>
+<h3>task2</h3>
+<p><span style="background-color: #ff0000;"><img alt="" height="225" src="/images/remote api 新增前後左右功能.gif" width="400"/><br/></span></p>
+<p><span style="background-color: #ffffff;"><strong>程式:</strong></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># File created by Thibaut Royer, Epitech school
+# thibaut1.royer@epitech.eu
+# It intends to be an example program for the "Two wheels, one arm" educative project.
+
+import sim as vrep
+import math
+import random
+import time
+import keyboard
+
+
+print ('Start')
+
+# Close eventual old connections
+vrep.simxFinish(-1)
+# Connect to V-REP remote server
+clientID = vrep.simxStart('192.168.1.116', 19997, True, True, 5000, 5)
+
+if clientID != -1:
+    print ('Connected to remote API server')
+    
+    res = vrep.simxAddStatusbarMessage(
+        clientID, "40823246",
+        vrep.simx_opmode_oneshot)
+    if res not in (vrep.simx_return_ok, vrep.simx_return_novalue_flag):
+        print("Could not add a message to the status bar.")
+
+    
+    opmode = vrep.simx_opmode_oneshot_wait
+    
+
+    
+    vrep.simxStartSimulation(clientID, opmode)
+    ret,front_handle=vrep.simxGetObjectHandle(clientID,"front_joint",opmode)
+    ret,left_handle=vrep.simxGetObjectHandle(clientID,"left_joint",opmode)
+    ret,right_handle=vrep.simxGetObjectHandle(clientID,"right_joint",opmode)
+    ret,gear_handle=vrep.simxGetObjectHandle(clientID,"gear_joint",opmode)
+    #ret,main = vrep.simxGetObjectHandle(clientID, "main", opmode)
+    while True:
+        #keyboard "w" 
+        if keyboard.is_pressed("w"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+            
+        #keyboard "s" 
+        if keyboard.is_pressed("s"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,-1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,-1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,-1000,opmode)
+        
+        #keyboard "a" 
+        if keyboard.is_pressed("a"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,5,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+        
+        #keyboard "d" 
+        if keyboard.is_pressed("d"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,5,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+        
+        #keyboard "w+a" 
+        if keyboard.is_pressed("w+a"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,500,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+        
+        #keyboard "w+d" 
+        if keyboard.is_pressed("w+d"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,500,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+        
+        #keyboard "space" 
+        if keyboard.is_pressed("space"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+            
+        vrep.simxSetJointTargetVelocity(clientID,gear_handle,-0,opmode)
+        
+        #keyboard "8" 
+        if keyboard.is_pressed("8"):
+            vrep.simxSetJointTargetVelocity(clientID,gear_handle,-30,opmode)
+        
+        #keyboard "5" 
+        if keyboard.is_pressed("5"):
+            vrep.simxSetJointTargetVelocity(clientID,gear_handle,15,opmode)
+        
+        #keyboard "esc" 
+        if  keyboard.is_pressed("esc"):
+            vrep.simxStopSimulation(clientID, opmode)
+            break
+        
+else:
+    print ('Failed connecting to remote API server')
+    print ('End')
+</pre>
+<p></p><h1>筆記</h1>
 <h2>coppeliasim 新增球體,旋轉軸應用</h2>
 <p>1.如何新增一個直徑0.2,有物理屬性的球體?</p>
 <p><img alt="" height="413" src="https://40823246.github.io/cad2020bg4/images/1.png" width="475"/></p>
@@ -566,9 +669,10 @@ end </pre>
 &lt;/section&gt;</pre>
 <p><span>修改width hight數值可以改視窗大小。</span><br/><br/><br/></p>
 <h2>remote api</h2>
-<p><span>clientID:如果連接失敗,clientID=-1。</span></p>
-<p><span>vrep.simxStartSimulation(clientID, opmode):自動幫你按開始鍵。</span></p>
-<p><span>simxSetJointTargetVelocity(clientID,軸,弳<b>度</b>,opmode):控制軸旋轉幾度。</span></p>
+<p><span><strong><span style="background-color: #ffffff;">clientID:</span></strong>如果連接失敗,clientID=-1。</span></p>
+<p><span><strong><span style="background-color: #ffffff;">vrep.simxStartSimulation(clientID, opmode):</span></strong>自動幫你按開始鍵。</span></p>
+<p><strong>vrep.simxStopSimulation(clientID, opmode):自動</strong>重置vrep。</p>
+<p><span><strong>simxSetJointTargetVelocity(clientID,軸,弳度,opmode):</strong>控制軸旋轉幾度。</span></p>
 <h1>W5</h1>
 <p><a href="/downloads/W5.xlsx">W5.xlsx</a></p>
 <p><iframe height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7IitEfk9YphCecJpxw5MfAHtkjkhAiKyLjUAfMcn4l5NNHmPYqED1pEBjCnCVvdsh70ygz7K4y3JP/pubhtml?widget=true&amp;headers=false" width="800"></iframe></p>

@@ -133,19 +133,113 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">檔案下載 << <a href='檔案下載.html'>Previous</a> <a href='stage3-bg1.html'>Next</a> >> stage3-bg1<br /><h1>參考資料</h1>
-<p><span style="background-color: #ff0000;">轉子引擎:</span></p>
-<p><a href="https://www.youtube.com/watch?v=nA5vAulVHbw">https://www.youtube.com/watch?v=nA5vAulVHbw</a></p>
-<p><a href="https://www.youtube.com/watch?v=fec0z_BOSzo">https://www.youtube.com/watch?v=fec0z_BOSzo</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%8B%92%E6%B4%9B%E4%B8%89%E8%A7%92%E5%BD%A2">https://zh.wikipedia.org/wiki/</a></p>
-<hr/>
-<p><span style="background-color: #ff0000;">堆高機:</span></p>
-<p>繪圖參考</p>
-<p><a href="http://www.hsintai.tw/nissan">http://www.hsintai.tw/nissan</a></p>
-<p><a href="http://www.yang-forklift.com.tw/_i/assets/upload/images/2018-10-19_092303.png">http://www.yang-forklift.com.tw/_i/assets/upload/images/2018-10-19_092303.png</a></p>
-<p>程式參考</p>
-<p><a href="https://mdekmol.github.io/cd2019a-task1-2019cda_t1_g2/content/Vrep-2.html">https://mdekmol.github.io/cd2019a-task1-2019cda_t1_g2/content/Vrep-2.html</a></p>
-<br />檔案下載 << <a href='檔案下載.html'>Previous</a> <a href='stage3-bg1.html'>Next</a> >> stage3-bg1</div>
+    <div id="tipue_search_content">stage3-bg1 << <a href='stage3-bg1.html'>Previous</a> <a href='筆記.html'>Next</a> >> 筆記<br /><h1>task2</h1>
+<p>將小組stage2 採用remote api </p>
+<p>使用python keyboard插件:<a href="https://pypi.org/project/keyboard/">https://pypi.org/project/keyboard/</a></p>
+<p>讓堆高機可以用鍵盤控制</p>
+<p><span style="background-color: #ff0000;"><img alt="" height="225" src="./../images/remote api 新增前後左右功能.gif" width="400"/><br/></span></p>
+<p><span style="background-color: #ffffff;"><strong>程式:</strong></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># File created by Thibaut Royer, Epitech school
+# thibaut1.royer@epitech.eu
+# It intends to be an example program for the "Two wheels, one arm" educative project.
+
+import sim as vrep
+import math
+import random
+import time
+import keyboard
+
+
+print ('Start')
+
+# Close eventual old connections
+vrep.simxFinish(-1)
+# Connect to V-REP remote server
+clientID = vrep.simxStart('192.168.1.116', 19997, True, True, 5000, 5)
+
+if clientID != -1:
+    print ('Connected to remote API server')
+    
+    res = vrep.simxAddStatusbarMessage(
+        clientID, "40823246",
+        vrep.simx_opmode_oneshot)
+    if res not in (vrep.simx_return_ok, vrep.simx_return_novalue_flag):
+        print("Could not add a message to the status bar.")
+
+    
+    opmode = vrep.simx_opmode_oneshot_wait
+    
+
+    
+    vrep.simxStartSimulation(clientID, opmode)
+    ret,front_handle=vrep.simxGetObjectHandle(clientID,"front_joint",opmode)
+    ret,left_handle=vrep.simxGetObjectHandle(clientID,"left_joint",opmode)
+    ret,right_handle=vrep.simxGetObjectHandle(clientID,"right_joint",opmode)
+    ret,gear_handle=vrep.simxGetObjectHandle(clientID,"gear_joint",opmode)
+    #ret,main = vrep.simxGetObjectHandle(clientID, "main", opmode)
+    while True:
+        #keyboard "w" 
+        if keyboard.is_pressed("w"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+            
+        #keyboard "s" 
+        if keyboard.is_pressed("s"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,-1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,-1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,-1000,opmode)
+        
+        #keyboard "a" 
+        if keyboard.is_pressed("a"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,5,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+        
+        #keyboard "d" 
+        if keyboard.is_pressed("d"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,5,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+        
+        #keyboard "w+a" 
+        if keyboard.is_pressed("w+a"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,500,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,1000,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+        
+        #keyboard "w+d" 
+        if keyboard.is_pressed("w+d"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,500,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,1000,opmode)
+        
+        #keyboard "space" 
+        if keyboard.is_pressed("space"):
+            vrep.simxSetJointTargetVelocity(clientID,front_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,left_handle,0,opmode)
+            vrep.simxSetJointTargetVelocity(clientID,right_handle,0,opmode)
+            
+        vrep.simxSetJointTargetVelocity(clientID,gear_handle,-0,opmode)
+        
+        #keyboard "8" 
+        if keyboard.is_pressed("8"):
+            vrep.simxSetJointTargetVelocity(clientID,gear_handle,-30,opmode)
+        
+        #keyboard "5" 
+        if keyboard.is_pressed("5"):
+            vrep.simxSetJointTargetVelocity(clientID,gear_handle,15,opmode)
+        
+        #keyboard "esc" 
+        if  keyboard.is_pressed("esc"):
+            vrep.simxStopSimulation(clientID, opmode)
+            break
+        
+else:
+    print ('Failed connecting to remote API server')
+    print ('End')
+</pre>
+<p></p><br />stage3-bg1 << <a href='stage3-bg1.html'>Previous</a> <a href='筆記.html'>Next</a> >> 筆記</div>
         
     <!-- footer -->
       <div class="container">
