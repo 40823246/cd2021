@@ -496,6 +496,23 @@ end </pre>
 <p><span style="background-color: #ffffff;">來回走直線</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/-6Q0tW_oKzo" title="YouTube video player" width="560"></iframe></p>
 <p></p>
+<p><span style="background-color: #ff0000;">20210520</span></p>
+<p><span style="background-color: #ffffff;">堆高機搬運測試A to B</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/yv5kaw8Mt8g" title="YouTube video player" width="560"></iframe></p>
+<p><span style="background-color: #ff0000;">20210524</span></p>
+<p><span style="background-color: #ffffff;">將機械手臂改成改成一鍵往前 &gt; 抓取 &gt;往後 &gt;放開，增加抓取成功機率。</span><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/Gvrjb9N16_A" title="YouTube video player" width="560"></iframe></p>
+<p>主要程式碼:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">if keyboard.is_pressed("t"):
+            print("You pressed t")
+           
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.5,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*90,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.1,opmode)
+            time.sleep(5)
+            vrep.simxSetJointTargetPosition(clientID,cam_handle,angle*0,opmode)</pre>
+<p></p>
 <p>5</p><h3>task2</h3>
 <p>將小組stage2 採用remote api </p>
 <p>使用python keyboard插件:<a href="https://pypi.org/project/keyboard/">https://pypi.org/project/keyboard/</a></p>
