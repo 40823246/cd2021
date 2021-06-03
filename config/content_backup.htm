@@ -502,7 +502,9 @@ end </pre>
 <p><span style="background-color: #ff0000;">20210524</span></p>
 <p><span style="background-color: #ffffff;">將機械手臂改成改成一鍵往前 &gt; 抓取 &gt;往後 &gt;放開，增加抓取成功機率。</span><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/Gvrjb9N16_A" title="YouTube video player" width="560"></iframe></p>
 <p>主要程式碼:</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">if keyboard.is_pressed("t"):
+<p></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#angle = math.pi/180
+if keyboard.is_pressed("t"):
             print("You pressed t")
            
             vrep.simxSetJointTargetPosition(clientID,vertical_handle,0.5,opmode)
