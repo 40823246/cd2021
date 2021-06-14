@@ -1,0 +1,648 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40823246 cd2021</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40823246 cd2021</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='每周進度.html'>每周進度</a><ul class='dropdown'><li><a href='stage1-bg8.html'>stage1-bg8</a><li class='has-children'><a href='stage2-bg1.html'>stage2-bg1</a><ul class='dropdown'><li><a href='檔案下載.html'>檔案下載</a><li><a href='參考資料.html'>參考資料</a></li></ul><li class='has-children'><a href='stage3-bg1.html'>stage3-bg1</a><ul class='dropdown'><li><a href='task2.html'>task2</a></li></li></ul></ul><li class='has-children'><a href='筆記.html'>筆記</a><ul class='dropdown'><li><a href='coppeliasim 新增球體,旋轉軸應用.html'>coppeliasim 新增球體,旋轉軸應用</a><li><a href='組員fork git pull 注意事項.html'>組員fork git pull 注意事項</a><li><a href='reveal 功能.html'>reveal 功能</a><li><a href='remote api.html'>remote api</a></li></ul><li><a href='W5.html'>W5</a><li><a href='w15.html'>w15</a><li><a href='w16.html'>w16</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">w15 << <a href='w15.html'>Previous</a> <br /><h1>w16</h1>
+<h6></h6>
+<h4><strong>1.Onshape 零組件繪製</strong><br/><a href="https://cad.onshape.com/documents/95be919eff337bcfb3d48a31/w/7141046f74a1cb6c4eb8b963/e/9540969522d181481ee4a819" rel="nofollow">https://cad.onshape.com/documents/95be919eff337bcfb3d48a31/w/7141046f74a1cb6c4eb8b963/e/9540969522d181481ee4a819</a></h4>
+<p>繪製過程:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dJSWbt5e668" title="YouTube video player" width="560"></iframe></p>
+<hr/>
+<h4><br/><strong>2.建立 CoppeliaSim 4.1.0 MTB robot 場景</strong><br/>影片:<br/><a href="https://www.youtube.com/watch?v=fIN-mSlv8K4" rel="nofollow">https://www.youtube.com/watch?v=fIN-mSlv8K4</a><br/>檔案下載:<br/><a href="https://drive.google.com/file/d/1udJ1NMeyMnoSBGd3NPWcxbkaqaUAw0Mi/view?usp=sharing" rel="nofollow">https://drive.google.com/file/d/1udJ1NMeyMnoSBGd3NPWcxbkaqaUAw0Mi/view?usp=sharing</a></h4>
+<h6>程式:</h6>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    -- 設定個軸
+    joint_hanld1=sim.getObjectHandle('joint1')
+    joint_hanld2=sim.getObjectHandle('joint2')
+    joint_hanld3=sim.getObjectHandle('joint3')
+    joint_hanld4=sim.getObjectHandle('joint4')
+    suctionPad=sim.getObjectHandle('suctionPad')
+    -- 賦值
+    angle=math.pi/180
+    angle1=0
+    angle2=0
+    d=0
+    a1=0.8 --手臂長度1
+    a2=0.8 --手臂長度2
+end
+
+function sysCall_actuation()
+    -- 鍵盤控制代碼
+    message, auxiliaryData=sim.getSimulatorMessage()
+        while message ~= -1 do
+            key=auxiliaryData[1]
+            sim.addStatusbarMessage('????? key:'..key)
+            if (message==sim.message_keypress) then
+                if (auxiliaryData[1]==100) then --d
+                    -- if key a pressed joint1 left
+                    angle1=angle1+angle
+                    sim.setJointPosition(joint_hanld1,angle1)
+                end -- if d
+                if (auxiliaryData[1]==97) then --a 
+                    -- if key d pressed joint1 right
+                    angle1=angle1-angle
+                    sim.setJointPosition(joint_hanld1,angle1)
+                end -- if a
+                if (auxiliaryData[1]==101) then --e
+                    -- if key e pressed joint2 left
+                    angle2=angle2+angle
+                    sim.setJointPosition(joint_hanld2,angle2)
+                end -- if d
+                if (auxiliaryData[1]==113) then --q 
+                    -- if key q pressed joint2 right
+                    angle2=angle2-angle
+                    sim.setJointPosition(joint_hanld2,angle2)
+                end -- if a
+                if (auxiliaryData[1]==56) then --8
+                    -- if key 8 pressed suctionpad up and active=ture
+                    d=d-0.05
+                    sim.setJointPosition(joint_hanld3,d)
+                    sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','ture')
+                end -- if 8
+                if (auxiliaryData[1]==53) then --5
+                    -- if key 8 pressed suctionpad down 
+                    sim.setJointPosition(joint_hanld3,0.084)
+                end -- if 5
+                if (auxiliaryData[1]==115) then --s
+                    -- if key s pressed active=false
+                    sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','false')
+                end -- if 5
+                message, auxiliaryData=sim.getSimulatorMessage()
+            end
+        end  
+end</pre>
+<hr/>
+<h4><br/><strong>3.手臂末端加入 components-gripper-suction pad 吸盤 </strong><br/>影片:<br/><a href="https://youtu.be/H0d0PgtyghM" rel="nofollow">https://youtu.be/H0d0PgtyghM</a></h4>
+<h6>吸盤程式:</h6>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
+    s=sim.getObjectHandle('suctionPadSensor')
+    l=sim.getObjectHandle('suctionPadLoopClosureDummy1')
+    l2=sim.getObjectHandle('suctionPadLoopClosureDummy2')
+    b=sim.getObjectHandle('suctionPad')
+    suctionPadLink=sim.getObjectHandle('suctionPadLink')
+
+    infiniteStrength=sim.getScriptSimulationParameter(sim.handle_self,'infiniteStrength')
+    maxPullForce=sim.getScriptSimulationParameter(sim.handle_self,'maxPullForce')
+    maxShearForce=sim.getScriptSimulationParameter(sim.handle_self,'maxShearForce')
+    maxPeelTorque=sim.getScriptSimulationParameter(sim.handle_self,'maxPeelTorque')
+
+    sim.setLinkDummy(l,-1)
+    sim.setObjectParent(l,b,true)
+    m=sim.getObjectMatrix(l2,-1)
+    sim.setObjectMatrix(l,-1,m)
+end
+
+function sysCall_cleanup() 
+--[[
+    sim.setLinkDummy(l,-1)
+    sim.setObjectParent(l,b,true)
+    m=sim.getObjectMatrix(l2,-1)
+    sim.setObjectMatrix(l,-1,m)
+]]--
+end 
+
+function sysCall_sensing() 
+    parent=sim.getObjectParent(l)
+    if (sim.getScriptSimulationParameter(sim.handle_self,'active')==false) then
+        if (parent~=b) then
+            sim.setLinkDummy(l,-1)
+            sim.setObjectParent(l,b,true)
+            m=sim.getObjectMatrix(l2,-1)
+            sim.setObjectMatrix(l,-1,m)
+        end
+    else
+        if (parent==b) then
+            -- Here we want to detect a respondable shape, and then connect to it with a force sensor (via a loop closure dummy dummy link)
+            -- However most respondable shapes are set to "non-detectable", so "sim.readProximitySensor" or similar will not work.
+            -- But "sim.checkProximitySensor" or similar will work (they don't check the "detectable" flags), but we have to go through all shape objects!
+            index=0
+            while true do
+                shape=sim.getObjects(index,sim.object_shape_type)
+                if (shape==-1) then
+                    break
+                end
+                if (shape~=b) and (sim.getObjectInt32Parameter(shape,sim.shapeintparam_respondable)~=0) and (sim.checkProximitySensor(s,shape)==1) then
+                    -- Ok, we found a respondable shape that was detected
+                    -- We connect to that shape:
+                    -- Make sure the two dummies are initially coincident:
+                    sim.setObjectParent(l,b,true)
+                    m=sim.getObjectMatrix(l2,-1)
+                    sim.setObjectMatrix(l,-1,m)
+                    -- Do the connection:
+                    sim.setObjectParent(l,shape,true)
+                    sim.setLinkDummy(l,l2)
+                    break
+                end
+                index=index+1
+            end
+        else
+            -- Here we have an object attached
+            if (infiniteStrength==false) then
+                -- We might have to conditionally beak it apart!
+                result,force,torque=sim.readForceSensor(suctionPadLink) -- Here we read the median value out of 5 values (check the force sensor prop. dialog)
+                if (result&gt;0) then
+                    breakIt=false
+                    if (force[3]&gt;maxPullForce) then breakIt=true end
+                    sf=math.sqrt(force[1]*force[1]+force[2]*force[2])
+                    if (sf&gt;maxShearForce) then breakIt=true end
+                    if (torque[1]&gt;maxPeelTorque) then breakIt=true end
+                    if (torque[2]&gt;maxPeelTorque) then breakIt=true end
+                    if (breakIt) then
+                        -- We break the link:
+                        sim.setLinkDummy(l,-1)
+                        sim.setObjectParent(l,b,true)
+                        m=sim.getObjectMatrix(l2,-1)
+                        sim.setObjectMatrix(l,-1,m)
+                    end
+                end
+            end
+        end
+    end
+    if (sim.getSimulationState()==sim.simulation_advancing_lastbeforestop) then
+        sim.setLinkDummy(l,-1)
+        sim.setObjectParent(l,b,true)
+        m=sim.getObjectMatrix(l2,-1)
+        sim.setObjectMatrix(l,-1,m)
+    end
+end </pre>
+<hr/>
+<h4><br/><br/><strong>4.逆向運動學函式</strong><br/>影片:<br/><a href="https://youtu.be/7pV9-aCR06I" rel="nofollow">https://youtu.be/7pV9-aCR06I</a></h4>
+<p>在<span> </span><a class="postlink" href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#nonThreaded">non-threaded child script</a><span><span> </span></span>模式下不能使用sim.wait，所以使用threaded child script</p>
+<p>如果要在<a class="postlink" href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#nonThreaded">non-threaded child script<span> </span></a>模式下用<span>延遲函數，可以參考:<a href="https://forum.coppeliarobotics.com/viewtopic.php?t=4197">網址</a></span></p>
+<h6>程式:</h6>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_threadmain()
+    -- 設定個軸
+    joint_hanld1=sim.getObjectHandle('joint1')
+    joint_hanld2=sim.getObjectHandle('joint2')
+    joint_hanld3=sim.getObjectHandle('joint3')
+    suctionPad=sim.getObjectHandle('suctionPad') --吸盤
+    --賦值
+    angle=180/math.pi
+    angle1=math.pi/180
+    d=0
+    x=0.7 --(m)
+    y=0.2 --(m)
+    --逆向運動學函式
+    function round(x, n) 
+    n = math.pow(10, n or 0)
+    x = x * n
+    if x &gt;= 0 then x = math.floor(x + 0.5) else x = math.ceil(x - 0.5) end
+    return x / n
+end
+ 
+-- radian to degree
+deg = 180/math.pi
+-- link 1 length
+a1 = 0.8 --手臂長度1(m)
+-- link 2 length
+a2 = 0.8 --手臂長度2(m)
+-- derivated based upon https://www.youtube.com/watch?v=IKOGwoJ2HLk&amp;t=311s
+function ik(x, y)
+    -- (x, y) need to be located inside the circle with radius a1+a2
+    if (x^2 + y^2) &lt;= (a1+ a2)^2 then
+        q2 = -math.acos((x^2+y^2-a1^2-a2^2)/(2*a1*a2))
+        q1 = math.atan2(y, x) + math.atan2((a2*math.sin(q2)), (a1+a2*math.cos(q2)))
+        return {round(q1*deg, 4), round(q2*deg, 4)}
+    else
+        print("Over range!")
+    end
+end
+ 
+theta = ik(0.7, 0.2)
+ 
+print(theta[1], theta[2])
+            sim.setJointTargetPosition(joint_hanld1,-theta[1]*angle1)
+            sim.setJointTargetPosition(joint_hanld2,theta[2]*angle1)
+            sim.wait(3)
+    --(0.2,0.7,0) 和 (-0.3,-0.55,0)來回取放
+    while(true)
+        do  
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,0.06)
+            sim.wait(3)
+            sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','ture')
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,-0.06)
+            sim.wait(3)
+            theta = ik(-0.55, -0.3)
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld1,-theta[1]*angle1)
+            sim.setJointTargetPosition(joint_hanld2,theta[2]*angle1)
+            sim.wait(10)
+            sim.setJointTargetPosition(joint_hanld3,0.06)
+            sim.wait(3)
+            sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','false')
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,-0.06)
+            sim.wait(3)
+            sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','ture')
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,0.06)
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,-0.06)
+            sim.wait(3)
+            theta = ik(0.7, 0.2)
+            sim.setJointTargetPosition(joint_hanld1,-theta[1]*angle1)
+            sim.setJointTargetPosition(joint_hanld2,theta[2]*angle1)
+            sim.wait(10)
+            sim.setJointTargetPosition(joint_hanld3,0.06)
+            sim.wait(3)
+            sim.setScriptSimulationParameter(sim.getScriptAssociatedWithObject(suctionPad),'active','false')
+            sim.wait(3)
+            sim.setJointTargetPosition(joint_hanld3,-0.06)
+    end   
+    
+    
+    
+end
+</pre>
+<hr/>
+<h4><br/><br/><strong>5.Python remote API 逆向運動學函式</strong><br/>影片:<br/><a href="https://youtu.be/ACHYQvS25A0" rel="nofollow">https://youtu.be/ACHYQvS25A0</a></h4>
+<p>程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
+import math
+import random
+import time
+import keyboard
+
+
+print ('Start')
+
+# Close eventual old connections
+vrep.simxFinish(-1)
+# Connect to V-REP remote server
+clientID = vrep.simxStart('192.168.1.116', 19997, True, True, 5000, 5)
+
+if clientID != -1:
+    print ('Connected to remote API server')
+    
+    res = vrep.simxAddStatusbarMessage(
+        clientID, "40823246",
+        vrep.simx_opmode_oneshot)
+    if res not in (vrep.simx_return_ok, vrep.simx_return_novalue_flag):
+        print("Could not add a message to the status bar.")
+
+    
+    opmode = vrep.simx_opmode_oneshot_wait
+    angle1=math.pi/180
+    
+    # radian to degree
+    deg = 180/math.pi
+    # link 1 length
+    a1 = 0.8
+    # link 2 length
+    a2 = 0.8
+    # derivated based up https://www.youtube.com/watch?v=IKOGwoJ2HLk&amp;t=311s
+     
+    def ik(x, y):
+        # (x, y)  need to be located inside the circle with radius a1+a2
+        if (x**2 + y**2) &lt;= (a1+ a2)**2:
+            q2 = -math.acos((x**2+y**2-a1**2-a2**2)/(2*a1*a2))
+            q1 = math.atan2(y, x) + math.atan2((a2*math.sin(q2)), (a1+a2*math.cos(q2)))
+            # The decimal point of number is rounded to the 4th place
+            return [round(q1*deg, 4), round(q2*deg, 4)]
+        else:
+            print("Over range!")
+            # end the script execution
+ 
+    theta = ik(0.7, 0.2)
+ 
+    print(theta[0], theta[1])
+    
+    vrep.simxStartSimulation(clientID, opmode)
+    ret,joint_hanld1=vrep.simxGetObjectHandle(clientID,"joint1",opmode)
+    ret,joint_hanld2=vrep.simxGetObjectHandle(clientID,"joint2",opmode)
+    ret,joint_hanld3=vrep.simxGetObjectHandle(clientID,"joint3",opmode)
+    ret,suctionPad=vrep.simxGetObjectHandle(clientID,"suctionPad",opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint_hanld1,-theta[0]*angle1,opmode)
+    vrep.simxSetJointTargetPosition(clientID,joint_hanld2,theta[1]*angle1,opmode)
+    time.sleep(0.5)
+    while True:
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,0.06,opmode)
+            time.sleep(0.5)
+            vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,-0.06,opmode)
+            time.sleep(0.5)
+            theta = ik(-0.55, -0.3)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld1,-theta[0]*angle1,opmode)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld2,theta[1]*angle1,opmode)
+            time.sleep(2)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,0.06,opmode)
+            time.sleep(0.5)
+            vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,-0.06,opmode)
+            time.sleep(0.5)
+            vrep.simxSetIntegerSignal(clientID,"pad_switch",1,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,0.06,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,-0.06,opmode)
+            time.sleep(0.5)
+            theta = ik(0.7, 0.2)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld1,-theta[0]*angle1,opmode)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld2,theta[1]*angle1,opmode)
+            time.sleep(2)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,0.06,opmode)
+            time.sleep(0.5)
+            vrep.simxSetIntegerSignal(clientID,"pad_switch",0,opmode)
+            time.sleep(0.5)
+            vrep.simxSetJointTargetPosition(clientID,joint_hanld3,-0.06,opmode)
+    end
+        
+else:
+    print ('Failed connecting to remote API server')
+    print ('End')</pre>
+<hr/>
+<p><span></span>因為在原本吸盤程式是藉由更改"active" 的值，ture or false，來決定吸盤是否生效，但我在<a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm">python remote api</a>中 找不到可以更改"active"的功能，所以使用<a href="https://40823214.github.io/cd2021/content/index.html">40823214</a>的吸盤程式，只要更改"pad_switch"的值，0 or 1，即可<span>決定吸盤是否生效。</span></p>
+<p><span>找到最類似的功能:<a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxSetBooleanParameter">simxSetBooleanParameter</a></span></p>
+<p><span></span>吸盤程式(使用<a href="https://40823214.github.io/cd2021/content/index.html">40823214</a>的程式):</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
+    --this is teach by 40823214
+    objectHandle=sim.getObjectHandle('suctionPad')
+    sim.setUserParameter(objectHandle,'@enable','')
+    modelBase=sim.getObjectAssociatedWithScript(sim.handle_self)
+    robotBase=modelBase
+    while true do
+        robotBase=sim.getObjectParent(robotBase)
+        if robotBase==-1 then
+            robotName='Dobot'
+            break
+        end
+        robotName=sim.getObjectName(robotBase)
+        suffix,suffixlessName=sim.getNameSuffix(robotName)
+        if suffixlessName=='Dobot' then
+            break
+        end
+    end
+
+    s=sim.getObjectHandle('suctionPadSensor')
+    l=sim.getObjectHandle('suctionPadLoopClosureDummy1')
+    l2=sim.getObjectHandle('suctionPadLoopClosureDummy2')
+    b=sim.getObjectHandle('suctionPad')
+    suctionPadLink=sim.getObjectHandle('suctionPadLink')
+    local gripperBase=sim.getObjectAssociatedWithScript(sim.handle_self)
+
+    infiniteStrength=sim.getScriptSimulationParameter(sim.handle_self,'infiniteStrength')
+    maxPullForce=sim.getScriptSimulationParameter(sim.handle_self,'maxPullForce')
+    maxShearForce=sim.getScriptSimulationParameter(sim.handle_self,'maxShearForce')
+    maxPeelTorque=sim.getScriptSimulationParameter(sim.handle_self,'maxPeelTorque')
+
+    sim.setLinkDummy(l,-1)
+    sim.setObjectParent(l,b,true)
+    m=sim.getObjectMatrix(l2,-1)
+    sim.setObjectMatrix(l,-1,m)
+end
+
+function sysCall_cleanup() 
+    --this is teach by 40823214
+    sim.setLinkDummy(l,-1)
+    sim.setObjectParent(l,b,true)
+    m=sim.getObjectMatrix(l2,-1)
+    sim.setObjectMatrix(l,-1,m)
+end 
+
+function sysCall_sensing() 
+    parent=sim.getObjectParent(l)
+    --this is teach by 40823214
+    local sig=sim.getIntegerSignal("pad_switch")
+    if (not sig) or (sig==0) then
+        if (parent~=b) then
+            sim.setLinkDummy(l,-1)
+            sim.setObjectParent(l,b,true)
+            m=sim.getObjectMatrix(l2,-1)
+            sim.setObjectMatrix(l,-1,m)
+        end
+    else
+        if (parent==b) then
+            index=0
+            while true do
+                shape=sim.getObjects(index,sim.object_shape_type)
+                if (shape==-1) then
+                    break
+                end
+                local res,val=sim.getObjectInt32Parameter(shape,sim.shapeintparam_respondable)
+                if (shape~=b) and (val~=0) and (sim.checkProximitySensor(s,shape)==1) then
+                    -- Ok, we found a respondable shape that was detected
+                    -- We connect to that shape:
+                    -- Make sure the two dummies are initially coincident:
+                    sim.setObjectParent(l,b,true)
+                    m=sim.getObjectMatrix(l2,-1)
+                    sim.setObjectMatrix(l,-1,m)
+                    -- Do the connection:
+                    sim.setObjectParent(l,shape,true)
+                    sim.setLinkDummy(l,l2)
+                    break
+                end
+                index=index+1
+            end
+        else
+            -- Here we have an object attached
+            if (infiniteStrength==false) then
+                -- We might have to conditionally beak it apart!
+                result,force,torque=sim.readForceSensor(suctionPadLink) -- Here we read the median value out of 5 values (check the force sensor prop. dialog)
+                if (result&gt;0) then
+                    breakIt=false
+                    if (force[3]&gt;maxPullForce) then breakIt=true end
+                    sf=math.sqrt(force[1]*force[1]+force[2]*force[2])
+                    if (sf&gt;maxShearForce) then breakIt=true end
+                    if (torque[1]&gt;maxPeelTorque) then breakIt=true end
+                    if (torque[2]&gt;maxPeelTorque) then breakIt=true end
+                    if (breakIt) then
+                        -- We break the link:
+                        sim.setLinkDummy(l,-1)
+                        sim.setObjectParent(l,b,true)
+                        m=sim.getObjectMatrix(l2,-1)
+                        sim.setObjectMatrix(l,-1,m)
+                    end
+                end
+            end
+        end
+    end
+end 
+--by 40823214</pre>
+<p></p><br />w15 << <a href='w15.html'>Previous</a> </div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
