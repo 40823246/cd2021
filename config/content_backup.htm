@@ -1105,7 +1105,7 @@ else:
     print ('End')</pre>
 <hr/>
 <p><span></span>因為在原本吸盤程式是藉由更改"active" 的值，ture or false，來決定吸盤是否生效，但我在<a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm">python remote api</a>中 找不到可以更改"active"的功能，所以使用<a href="https://40823214.github.io/cd2021/content/index.html">40823214</a>的吸盤程式，只要更改"pad_switch"的值，0 or 1，即可<span>決定吸盤是否生效。</span></p>
-<p><span>找到最類似的功能:<a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxSetBooleanParameter">網址</a></span></p>
+<p><span>找到最類似的功能:<a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm#simxSetBooleanParameter">simxSetBooleanParameter</a></span></p>
 <p><span></span>吸盤程式(使用<a href="https://40823214.github.io/cd2021/content/index.html">40823214</a>的程式):</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init() 
     --this is teach by 40823214
@@ -1212,6 +1212,3 @@ function sysCall_sensing()
 end 
 --by 40823214</pre>
 <p></p>
-<div id="gtx-trans" style="position: absolute; left: -4px; top: 4411.41px;">
-<div class="gtx-trans-icon"></div>
-</div>
