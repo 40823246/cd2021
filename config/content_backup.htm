@@ -756,6 +756,7 @@ else:
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/dJSWbt5e668" title="YouTube video player" width="560"></iframe></p>
 <hr/>
 <h4><br/><strong>2.建立 CoppeliaSim 4.1.0 MTB robot 場景</strong><br/>影片:<br/><a href="https://www.youtube.com/watch?v=fIN-mSlv8K4" rel="nofollow">https://www.youtube.com/watch?v=fIN-mSlv8K4</a><br/>檔案下載:<br/><a href="https://drive.google.com/file/d/1udJ1NMeyMnoSBGd3NPWcxbkaqaUAw0Mi/view?usp=sharing" rel="nofollow">https://drive.google.com/file/d/1udJ1NMeyMnoSBGd3NPWcxbkaqaUAw0Mi/view?usp=sharing</a></h4>
+<p>joint type使用Passive mode，參見:<a href="https://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm">網址</a></p>
 <h6>程式:</h6>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
     -- 設定個軸
@@ -914,6 +915,8 @@ function sysCall_sensing()
 end </pre>
 <hr/>
 <h4><br/><br/><strong>4.逆向運動學函式</strong><br/>影片:<br/><a href="https://youtu.be/7pV9-aCR06I" rel="nofollow">https://youtu.be/7pV9-aCR06I</a></h4>
+<p>檔案下載:</p>
+<p><a href="/downloads/MTB_force mode.zip">MTB_force mode.zip</a></p>
 <p>在<span> </span><a class="postlink" href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#nonThreaded">non-threaded child script</a><span><span> </span></span>模式下不能使用sim.wait，所以使用threaded child script</p>
 <p>如果要在<a class="postlink" href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#nonThreaded">non-threaded child script<span> </span></a>模式下用<span>延遲函數，可以參考:<a href="https://forum.coppeliarobotics.com/viewtopic.php?t=4197">網址</a></span></p>
 <h6>程式:</h6>
@@ -1005,6 +1008,8 @@ end
 </pre>
 <hr/>
 <h4><br/><br/><strong>5.Python remote API 逆向運動學函式</strong><br/>影片:<br/><a href="https://youtu.be/ACHYQvS25A0" rel="nofollow">https://youtu.be/ACHYQvS25A0</a></h4>
+<p>檔案下載:</p>
+<p><a href="/downloads/MTB_remote api python.zip">MTB_remote api python.zip</a></p>
 <p>程式:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sim as vrep
 import math
